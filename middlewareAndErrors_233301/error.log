@@ -1,0 +1,8 @@
+{"level":"error","message":"Apperror is not a constructor"}
+{"level":"error","message":"AppError is not defined"}
+{"level":"error","message":"No se ha podido acceder a / en el servidor :()"}
+{"level":"error","message":"No se ha podido acceder a / en el servidor :("}
+{"level":"error","message":"Faltan campos obligatorios"}
+{"level":"error","message":"Correo inválido"}
+{"level":"error","message":"No se ha podido acceder a /api/users en el servidor :("}
+{"level":"error","message":"Usuario no encontrado"}
