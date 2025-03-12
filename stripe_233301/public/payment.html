@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Pago</title>
+</head>
+<body>
+    <h2>Formulario de Pago</h2>
+    <form id="paymentForm">
+        <label for="cardNumber">Número de Tarjeta:</label>
+        <input type="text" id="cardNumber" required><br>
+
+        <label for="cardExpiry">Fecha de Expiración:</label>
+        <input type="text" id="cardExpiry" required><br>
+
+        <label for="cardCVC">CVC:</label>
+        <input type="text" id="cardCVC" required><br>
+
+        <button type="submit">Pagar</button>
+    </form>
+
+    <script>
+        const paymentId = window.location.pathname.split('/').pop();
+        document.getElementById('paymentForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const response = await fetch(`http://localhost:3000/api/payments/${paymentId}/proccess`, { method: 'PATCH' });
+            const data = await response.json();
+            alert(data.message);
+        });
+    </script>
+</body>
+</html>
