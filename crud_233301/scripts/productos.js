@@ -1,3 +1,5 @@
+import ProductoService from "../servicios/producto.service.js"
+
 document.addEventListener('DOMContentLoaded', function () {
     const productList = document.getElementById("product-list")
     const searchInput = document.getElementById("search")
@@ -10,8 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Función para cargar y mostrar la lista de productos
     function getProducts() {
-        fetch('http://localhost:3000/api/productos')
-            .then(response => response.json())
+        ProductoService.getProducts()
             .then(data => {
                 productList.innerHTML = ''
 
@@ -37,12 +38,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Agregar comportamiento de buscado de productos
     searchInput.addEventListener('input', function () {
-        const filtro = searchInput.ariaValueMax
+        const filtro = searchInput.value
         if (filtro.trim() == '') {
             getProducts()
         } else {
-            fetch(`http://localhost:3000/api/productos/filtro/${filtro}`)
-                .then(response => response.json())
+            ProductoService.searchProducts(filtro)
                 .then(data => {
                     productList.innerHTML = '';
 
@@ -68,9 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (e.target.classList.contains('delete-product')) {
             const productId = e.target.getAttribute('data-id')
             if (confirm('¿Estas seguro de eliminar este producto?')) {
-                fetch(`http://localhost:3000/api/productos/${productId}`, {
-                    method: 'DELETE'
-                }).then(response => response.json())
+                ProductoService.deleteProducto(productId)
                     .then(data => {
                         alert('Producto eliminado con exito')
                         e.target.parentElement.remove()

@@ -1,3 +1,5 @@
+import ProductoService from "../servicios/producto.service"
+
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('product-form')
     const nameInput = document.getElementById('name')
@@ -9,8 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const productIdToEdit = urlParams.get('id')
 
     if (productIdToEdit) {
-        fetch(`http://localhost:3000/api/productos/${productIdToEdit}`)
-            .then(response => response.json())
+        ProductoService.getProductById(productIdToEdit)
             .then(product => {
                 nameInput.value = product.nombre
                 priceInput.value = product.precio
@@ -32,26 +33,12 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             if (productIdToEdit) {
-                fetch(`http://localhost:3000/api/productos/${productIdToEdit}`, {
-                    method: 'PUT',
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(productData)
-                })
-                    .then(response => response.json())
+                ProductoService.editProduct(productIdToEdit, productData)
                     .then(data => {
                         window.location.href = 'productos.html'
                     })
             } else {
-                fetch(`http://localhost:3000/api/productos/${productIdToEdit}`, {
-                    method: 'POST',
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(productData)
-                })
-                    .then(response => response.json())
+                ProductoService.addProduct(productData)
                     .then(data => {
                         window.location.href = 'productos.html'
                     })

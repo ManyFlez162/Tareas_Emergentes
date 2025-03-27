@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoy aprendiendo a usar template</title>
+</head>
+<body>
+    <h1>Hola Mundo</h1>
+
+    <template id="miTemplate">
+        <h2>Este es el título del template</h2>
+        <p>Este es un párrafo dentro del template</p>
+    </template>
+
+    <div id="contenedor"></div>
+    
+    <script>
+        const template = document.getElementById('miTemplate')
+        const contenedor = document.getElementById('contenedor')
+
+        const datos = [
+            {titulo: 'titulo 1', parrafo: 'parrafo1'},
+            {titulo: 'titulo 2', parrafo: 'parrafo2'},
+            {titulo: 'titulo 3', parrafo: 'parrafo3'},
+            {titulo: 'titulo 4', parrafo: 'parrafo4'},
+            {titulo: 'titulo 5', parrafo: 'parrafo5'}
+        ];
+
+        datos.forEach(item => {
+            const clone = document.importNode(template.content, true)
+            clone.querySelector('h2').textContent = item.titulo
+            clone.querySelector('p').textContent = item.parrafo
+            contenedor.appendChild(clone)
+        });
+
+    </script>
+</body>
+</html>
