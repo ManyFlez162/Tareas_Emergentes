@@ -1,0 +1,53 @@
+Guide
+Below you'll find examples using Fetch API but you can JSONPlaceholder with any other language.
+
+You can copy paste the code in your browser console to quickly test JSONPlaceholder.
+
+URL: https://jsonplaceholder.typicode.com/guide/
+
+
+----------------------- Comments Styles -----------------------
+details a { color: #F29900;}
+details a:hover { color: #FFF; }
+
+.date { 
+	color: #ccc; 
+	background: #3D3E42;
+	text-align: left; 
+	margin: 4px 0 5px 0; 
+	padding: 0.4em 0 0 0; 
+	border-top: 1px solid #555;
+}
+
+.date a { color: #ccc; }
+
+.comments { 
+	padding: 10px 10px 8px 10px; 
+	margin: 0 0 7px 0; 
+	background: #3f3f3f; 
+	color: #000;
+	font: 85% Arial, Sans-Serif;
+}
+
+.commentsbox { 
+	padding: 8px 0 10px 10px; 
+	margin: 0 0 10px 0; 
+	background: #f4f4f4; 
+	color: #000;
+}
+
+----------------------- Posts Styles -----------------------
+section a { color: #F29900;}
+section a:hover { color: #FFF; }
+
+.date { 
+	color: #ccc; 
+	background: #3D3E42;
+	text-align: right; 
+	margin: 4px 0 5px 0; 
+	padding: 0.4em 0 0 0; 
+	border-top: 1px solid #555;
+}
+
+.date a { color: #ccc; }
+
