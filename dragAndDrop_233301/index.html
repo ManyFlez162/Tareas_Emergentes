@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo drag n drop</title>
+    <style>
+        #items {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .draggable {
+            padding: 10px;
+            background-color: #87ceeb;
+            border: 1px solid #000;
+            width: 100;
+            text-align: center;
+            cursor: grap;
+        }
+
+        #dropZone {
+            width: 300px;
+            height: 200px;
+            border: 2px dashed #aaa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+        }
+
+        #dropZone.over {
+            background-color: green;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h3>Arrastra el elemento a la zona</h3>
+    <div id="items">
+        <div class="draggable" draggable="true" id="item1">Elemento 1</div>
+        <div class="draggable" draggable="true" id="item2">Elemento 2</div>
+    </div>
+
+    <div id="dropZone">Suelta aquí</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
