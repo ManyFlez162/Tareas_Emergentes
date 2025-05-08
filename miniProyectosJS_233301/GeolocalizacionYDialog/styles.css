@@ -1,0 +1,89 @@
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+.button {
+    padding: 0.5rem 1rem;
+    background-color: green;
+    border-radius: 10px;
+    width: fit-content;
+    background-color: #ff8400;
+    color: black;
+    cursor: pointer;
+}
+
+
+dialog {
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    top: 20%;
+    left: 20%;
+    z-index: 1;
+}
+
+
+dialog::backdrop {
+    position: fixed;
+    background: #22222293;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+/* Animación al abrir un diálogo */
+dialog[open],
+#backdrop {
+    animation: fade-in 250ms forwards;
+}
+
+
+/* Animación al cerrar un diálogo */
+dialog[open].close-animate,
+dialog[open].close-animate {
+    animation: fade-out 250ms forwards;
+}
+
+
+/* Define la animación de desvanecimiento al abrir un diálogo */
+@keyframes fade-in {
+    0% {
+        /* Empieza desde arriba, ligeramente desplazado y completamente transparente */
+        transform: translate(-50%, -10%);
+        opacity: 0;
+    }
+
+
+    100% {
+        /* Termina centrado y completamente visible */
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+
+/* Define la animación de desvanecimiento al cerrar un diálogo */
+@keyframes fade-out {
+    0% {
+        /* Empieza centrado y completamente visible */
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+
+
+    100% {
+        /* Termina arriba, ligeramente desplazado y completamente transparente */
+        transform: translate(-50%, -10%);
+        opacity: 0;
+        /* Oculta el elemento después de la animación */
+        display: none;
+    }
+}
